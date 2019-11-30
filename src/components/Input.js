@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
 class Input extends React.Component {
   constructor() {
@@ -13,7 +14,7 @@ class Input extends React.Component {
     const { value } = e.target;
     if (e.key === "Enter") {
       this.props.send(value);
-      document.getElementsById("text-input").reset();
+      ReactDOM.findDOMNode(this.refs.textInput).value = "";
     }
   };
 
@@ -22,7 +23,7 @@ class Input extends React.Component {
       <div className="msg-input">
         <input
           type="text"
-          id="text-input"
+          ref="textInput"
           name="input"
           placeholder="iMessage"
           onKeyDown={this.handleKeyDown}

@@ -15,10 +15,3 @@ class Messages extends React.Component {
 }
 
 export default Messages;
-/*
-{this.props.msgs.map(msg => (
-          <div key={msg.key} className={msg.id ? "to" : "from"}>
-            {msg.m}
-          </div>
-        ))}
-*/
