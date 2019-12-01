@@ -12,7 +12,8 @@ class Input extends React.Component {
 
   handleKeyDown = e => {
     const { value } = e.target;
-    if (e.key === "Enter") {
+    //ReactDOM.findDOMNode("typing").addClass("show")
+    if (e.key === "Enter" && value.length !== 0) {
       this.props.send(value);
       ReactDOM.findDOMNode(this.refs.textInput).value = "";
     }
