@@ -1,0 +1,21 @@
+[
+  {
+    "name": "💖Natasha✨",
+    "key": 0,
+    "history": [
+      { "m": "Hey there!", "key": 1, "id": false },
+      { "m": "whats up", "key": 2, "id": false },
+      { "m": "yooo", "key": 3, "id": true }
+    ]
+  },
+  {
+    "name": "Absinthe",
+    "key": 1,
+    "history": [{ "m": "Hey how's it going", "key": 1, "id": false }]
+  },
+  {
+    "name": "Nirupama",
+    "key": 2,
+    "history": [{ "m": "Last night was lame", "key": 1, "id": false }]
+  }
+]

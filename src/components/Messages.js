@@ -9,10 +9,10 @@ class Messages extends React.Component {
             {msg.m}
           </div>
         ))}
-        <div className="to typing">
-          <div className="typing-bubble"></div>
-          <div className="typing-bubble"></div>
-          <div className="typing-bubble"></div>
+        <div className="from typing">
+          <span className="typing-bubble">{" "}</span>
+          <span className="typing-bubble">{" "}</span>
+          <span className="typing-bubble">{" "}</span>
         </div>
       </div>
     );

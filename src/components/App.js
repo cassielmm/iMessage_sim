@@ -3,32 +3,16 @@ import Header from "./Header";
 import Messages from "./Messages";
 import Input from "./Input";
 import Contacts from "./Contacts";
+import data from "../../data/messages.json";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      msgs: [
-        {name: "💖Natasha✨",
-        key: 0, 
-        history: [
-          { m: "Hey there!", key: 1, id: false },
-          { m: "whats up", key: 2, id: false },
-          { m: "yooo", key: 3, id: true }]
-        },
-        {name: "Absinthe",
-        key: 1, 
-        history: [
-          {m: "Hey how's it going", key: 1, id: false}
-        ]},
-        {name: "Nirupama", 
-        key: 2,
-        history: [
-          {m: "Last night was lame", key: 1, id: false}
-        ]}
-      ],
       key_count: 3,
-      current_contact: 0
+      current_contact: 0,
+      name: data[0].name,
+      curr_data: data[0].history
     };
     this.send = this.send.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -36,7 +20,7 @@ class App extends React.Component {
 
   send(value) {
     this.setState(prevState => {
-      this.state.msgs[this.state.current_contact].history.push({
+      this.state.curr_data.push({
         m: value,
         key: prevState.key_count + 1,
         id: true
@@ -46,17 +30,20 @@ class App extends React.Component {
   }
 
   handleClick(id) {
-    console.log(id)
-    this.setState = {current_contact: id}
+    this.setState({
+      current_contact: id,
+      name: data[id].name,
+      curr_data: data[id].history
+    });
   }
 
   render() {
     return (
       <div className="app">
-        <Contacts msgs={this.state.msgs} handleClick={this.handleClick}/>
+        <Contacts msgs={data} handleClick={this.handleClick} />
         <div className="app-body">
-          <Header name={this.state.msgs[this.state.current_contact].name} />
-          <Messages msgs={this.state.msgs[this.state.current_contact].history} />
+          <Header name={this.state.name} />
+          <Messages msgs={this.state.curr_data} />
           <Input send={this.send} />
         </div>
       </div>

@@ -3,6 +3,7 @@ body {
   margin: 20;
   font-family: 'SF Pro', 'Helvetica', sans-serif;
 }
+
 .app {
   text-align: center;
   display: flex;
@@ -78,12 +79,25 @@ body {
   }
   .typing {
     display: none;
+    animation: 2s scale infinite;
     .show {
       display: all;
     }
-    .typing-anim {
+    .typing-bubble {
       background-color: white;
-      border-radius: 25px;
+      display: block;
+      float: left;
+      width: 5px;
+      height: 5px;
+      border-radius: 5px;
+      margin: 3px;
+      opacity: 0.5;
+      /* solution from https://codepen.io/fusco/pen/XbpaYv/ */
+      @for $i from 1 through 3 {
+        &:nth-of-type(#{$i}) {
+          animation: 1s blink infinite ($i * 0.33s);
+        } 
+      }
     }
   }
   &:last-child {
@@ -108,4 +122,14 @@ body {
       outline: none;
     }
   } 
+}
+
+@keyframes blink {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; } 
+  100% { opacity: 0.5; }
+}
+
+@keyframes scale {
+  50% { transform: scale(1.05) }
 }
